@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+.poke-card {
+  border: black;
+  border-radius: 2px;
+}

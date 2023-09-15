@@ -1,13 +1,6 @@
-import logo from './logo.svg';
-import './App.css';
-import PokeDex from './Pokedex';
-import PokeCard from './Pokecard';
-import './Pokecard.css';
+import PokeCard from "./Pokecard"
 
-function App() {
-  return (
-    <div className="App">
-    <PokeDex array = {[
+const defaultArray = [
     {id: 4, name: 'Charmander', type: 'fire', base_experience: 62},
     {id: 7, name: 'Squirtle', type: 'water', base_experience: 63},
     {id: 11, name: 'Metapod', type: 'bug', base_experience: 72},
@@ -16,10 +9,14 @@ function App() {
     {id: 39, name: 'Jigglypuff', type: 'normal', base_experience: 95},
     {id: 94, name: 'Gengar', type: 'poison', base_experience: 225},
     {id: 133, name: 'Eevee', type: 'normal', base_experience: 65}
-  ]}/>
-  <PokeCard id = {4} name = "Charmander" type ='fire' base_experience={62}/>
-    </div>
-  );
+  ]
+
+function PokeDex({array=defaultArray}){  
+    return (
+        <div>
+            {array.map(el=>(<PokeCard id={el.id} type= {el.type} name={el.name} base_experience = {el.base_experience}/>))}
+        </div>
+    )
 }
 
-export default App;
+export default PokeDex
